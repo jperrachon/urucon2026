@@ -54,6 +54,14 @@ jobs:
             --exclude ".github/*" \
             --exclude "README.md"
 
+      - name: Verify published files in S3
+        run: |
+          set -euo pipefail
+          aws s3 ls s3://${{ vars.S3_BUCKET }}/index.html
+          aws s3 ls s3://${{ vars.S3_BUCKET }}/css/styles.css
+          aws s3 ls s3://${{ vars.S3_BUCKET }}/js/main.js
+          echo "S3 verification complete: key site files exist in bucket."
+
       - name: Invalidate CloudFront cache
         if: ${{ vars.CLOUDFRONT_DISTRIBUTION_ID != '' }}
         run: |
