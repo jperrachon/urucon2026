@@ -16,158 +16,7 @@
 </head>
 
 <body>
-
-  <!-- ── NAV ── -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <a href="#inicio" class="nav-logo">IEEE URUCON 2026</a>
-
-      <ul class="nav-menu">
-
-        <!-- INICIO -->
-        <li class="nav-item">
-          <a href="index.html" class="nav-link">Home</a>
-        </li>
-
-        <!-- MEGA MENÚ: LA CONFERENCIA -->
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            Conference
-            <svg class="chevron" viewBox="0 0 12 12" fill="none">
-              <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </a>
-          <div class="mega-drop cols-1"><!-- provisorio, suplantar por el de abajo -->
-            <!--<div class="mega-drop cols-3">
-            <div class="drop-col">
-              <div class="drop-col-title">Event</div>
-              <a class="drop-link" href="#">Program</a>
-              <a class="drop-link" href="#">Venue</a>
-              <a class="drop-link" href="#">Special Guests</a>
-              <a class="drop-link" href="#">Pre-Webinars</a>
-            </div>-->
-            <div class="drop-col">
-              <div class="drop-col-title">Participation</div>
-              <a class="drop-link" href="cfpapers.html">Call For Papers</a>
-              <!--<a class="drop-link" href="#">Final Upload</a>-->
-              <a class="drop-link" href="registration.html">Registration</a>
-              <!--<a class="drop-link" href="#">Presenters</a>-->
-            </div>
-            <!--<div class="drop-col">
-              <div class="drop-col-title">Activities</div>
-              <a class="drop-link" href="#">Gala Dinner & Hotel</a>
-              <a class="drop-link" href="#">LACNIC Seminar</a>
-              <a class="drop-link" href="#">Scholarships</a>
-            </div>-->
-          </div>
-        </li>
-
-        <!-- MEGA MENÚ: CONTENIDO -->
-        <!--<li class="nav-item">
-          <a class="nav-link" href="#">
-            Content
-            <svg class="chevron" viewBox="0 0 12 12" fill="none">
-              <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <div class="mega-drop cols-2">
-            <div class="drop-col">
-              <div class="drop-col-title">Research</div>
-              <a class="drop-link" href="#">Topics</a>
-              <a class="drop-link" href="#">TPC</a>
-            </div>
-            <div class="drop-col">
-              <div class="drop-col-title">Community</div>
-              <a class="drop-link" href="#">Inform Me</a>
-            </div>
-          </div>
-        </li>-->
-
-        <!-- DROPDOWN SIMPLE: NOSOTROS -->
-        <!--<li class="nav-item">
-          <a class="nav-link" href="#">
-            About
-            <svg class="chevron" viewBox="0 0 12 12" fill="none">
-              <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <div class="simple-drop">
-            <a class="drop-link" href="#about">About Us</a>
-            <a class="drop-link" href="#">Organizing Committee</a>
-            <a class="drop-link" href="#">Contact</a>
-          </div>
-        </li>-->
-
-        <!-- ENLACE DIRECTO: SPONSORS -->
-        <li class="nav-item">
-          <a class="nav-link" href="#sponsors">Sponsors</a>
-        </li>
-
-      </ul>
-
-      <button class="nav-cta" onclick="window.location.href='registration.html'">Register</button>
-
-      <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Menú">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- ── MOBILE DRAWER ── -->
-  <div class="mobile-drawer" id="mobileDrawer">
-
-    <div class="mobile-section">
-      <div class="mobile-section-title">Home</div>
-      <a class="mobile-link" href="#inicio" onclick="closeMobile()">Home</a>
-    </div>
-
-    <!--<div class="mobile-section">
-      <div class="mobile-section-title">Conference — Event</div>
-      <a class="mobile-link" href="#" onclick="closeMobile()">Program</a>
-      <a class="mobile-link" href="#" onclick="closeMobile()">Venue</a>
-      <a class="mobile-link" href="#" onclick="closeMobile()">Special Guests</a>
-      <a class="mobile-link" href="#" onclick="closeMobile()">Pre-Webinars</a>
-    </div>-->
-
-    <div class="mobile-section">
-      <div class="mobile-section-title">Conference — Participation</div>
-      <a class="mobile-link" href="cfpapers.html" onclick="closeMobile()">Call For Papers</a>
-      <!--<a class="mobile-link" href="#" onclick="closeMobile()">Final Upload</a>-->
-      <a class="mobile-link" href="#" onclick="closeMobile()">Registration</a>
-      <!--<a class="mobile-link" href="#" onclick="closeMobile()">Presenters</a>-->
-    </div>
-
-    <!--<div class="mobile-section">
-      <div class="mobile-section-title">Conference — Activities</div>
-      <a class="mobile-link" href="#" onclick="closeMobile()">Gala Dinner & Hotel</a>
-      <a class="mobile-link" href="#" onclick="closeMobile()">LACNIC Seminar</a>
-      <a class="mobile-link" href="#" onclick="closeMobile()">Scholarchips</a>
-    </div>-->
-
-    <!--<div class="mobile-section">
-      <div class="mobile-section-title">Content</div>
-      <a class="mobile-link" href="#" onclick="closeMobile()">Research</a>
-      <a class="mobile-link" href="#" onclick="closeMobile()">Topics</a>
-      <a class="mobile-link" href="#" onclick="closeMobile()">TPC</a>
-    </div>
-
-    <div class="mobile-section">
-      <div class="mobile-section-title">About</div>
-      <a class="mobile-link" href="#about" onclick="closeMobile()">About Us</a>
-      <a class="mobile-link" href="#" onclick="closeMobile()">Organizing Committee</a>
-      <a class="mobile-link" href="#" onclick="closeMobile()">Contact</a>
-    </div>-->
-
-    <div class="mobile-section">
-      <div class="mobile-section-title">Sponsors</div>
-      <a class="mobile-link" href="#sponsors" onclick="closeMobile()">View sponsors</a>
-    </div>
-
-    <a class="mobile-cta" href="registration.html">Registration to the Event</a>
-
-  </div>
-
+    <div id="site-header"></div>
 
     <!-- CFP -->
     <section class="cfp-hero">
@@ -477,7 +326,7 @@
                     </div>
                     <div class="cfp-date-item">
                         <div class="cfp-date-label">Conference</div>
-                        <div class="cfp-date-value">Nov 16–18, 2026</div>
+                        <div class="cfp-date-value">Nov 16ÔÇô18, 2026</div>
                         <div class="cfp-date-note">Montevideo, Uruguay (Hybrid)</div>
                     </div>
                 </div>
@@ -509,67 +358,19 @@
         </aside>
 
     </div>
-    <!-- ── FIN CFP BODY ── -->
+    <!-- -- FIN CFP BODY -- -->
 
-    <!-- ── FOOTER ── -->
-    <footer id="contacto">
-        <div class="footer-inner">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <a href="#inicio" class="nav-logo">URUCON 2026</a>
-                    <p>IEEE URUCON 2026 Conference.</p>
-                    <div class="footer-socials">
-                        <a class="social-btn" href="#" title="Instagram">In</a>
-                        <a class="social-btn" href="#" title="Twitter">Tw</a>
-                        <a class="social-btn" href="#" title="LinkedIn">Li</a>
-                        <a class="social-btn" href="#" title="YouTube">Yt</a>
-                    </div>
-                </div>
+    <!-- -- FOOTER -- -->
+    <div id="site-footer"></div>
 
-                <div class="footer-col">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="#inicio">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#sponsors">Sponsors</a></li>
-                        <li><a href="mailto:ieeeurucon2021-chairs@edas.info">Contact & Support</a></li>
-                    </ul>
-                </div>
 
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="https://www.ieee.org/about/corporate/governance/p9-26.html">Nondiscrimination
-                                Policy</a></li>
-                        <li><a
-                                href="https://conferences.ieeeauthorcenter.ieee.org/author-ethics/guidelines-and-policies/submission-policies/">Publishing
-                                Policy</a></li>
-                        <li><a href="https://www.ieee.org/security-privacy.html">IEEE Privacy Policy</a></li>
-                        <li><a href="https://www.ieee.org/accessibility-statement.html">Accessibility</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Newsletter</h4>
-                    <div class="footer-newsletter">
-                        <input type="email" placeholder="your@email.com" />
-                        <button>Suscribe</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>© 2026 URUCON. All rights reserved.</p>
-                <div class="footer-bottom-links">
-                    <a href="#">Help</a>
-                    <a href="#">Contact</a>
-                </div>
-            </div>
-        </div>
-    </footer>
 
     <!-- Script -->
+    <script src="js/layout.js"></script>
     <script src="js/main.js"></script>
 </body>
 
 </html>
+
+
+

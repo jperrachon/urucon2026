@@ -1,0 +1,60 @@
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">IEEE URUCON 2026</a>
+
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="index.html" class="nav-link">Home</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          Conference
+          <svg class="chevron" viewBox="0 0 12 12" fill="none">
+            <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+        <div class="mega-drop cols-1">
+          <div class="drop-col">
+            <div class="drop-col-title">Participation</div>
+            <a class="drop-link" href="cfpapers.html">Call For Papers</a>
+            <a class="drop-link" href="registration.html">Registration</a>
+            <a class="drop-link" href="committees.html">Committees</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="index.html#sponsors">Sponsors</a>
+      </li>
+    </ul>
+
+    <button class="nav-cta" onclick="window.location.href='registration.html'">Register</button>
+
+    <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-drawer" id="mobileDrawer">
+  <div class="mobile-section">
+    <div class="mobile-section-title">Home</div>
+    <a class="mobile-link" href="index.html" onclick="closeMobile()">Home</a>
+  </div>
+
+  <div class="mobile-section">
+    <div class="mobile-section-title">Conference - Participation</div>
+    <a class="mobile-link" href="cfpapers.html" onclick="closeMobile()">Call For Papers</a>
+    <a class="mobile-link" href="registration.html" onclick="closeMobile()">Registration</a>
+    <a class="mobile-link" href="committees.html" onclick="closeMobile()">Committees</a>
+  </div>
+
+  <div class="mobile-section">
+    <div class="mobile-section-title">Sponsors</div>
+    <a class="mobile-link" href="index.html#sponsors" onclick="closeMobile()">View sponsors</a>
+  </div>
+
+  <a class="mobile-cta" href="registration.html">Registration to the Event</a>
+</div>
