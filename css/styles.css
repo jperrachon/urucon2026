@@ -758,6 +758,13 @@ footer {
 
 .social-btn:hover { border-color: var(--accent); color: var(--accent); }
 
+.social-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  display: block;
+}
+
 .footer-col h4 {
   font-family: 'Playfair Display', serif;
   font-size: 0.95rem;

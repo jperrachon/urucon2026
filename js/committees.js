@@ -18,6 +18,47 @@ document.addEventListener("DOMContentLoaded", () => {
     return "https://www.linkedin.com/search/results/all/?keywords=" + encodeURIComponent(name);
   }
 
+  function slugifyName(value) {
+    return value
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
+  function loadChairPhoto(chairPhoto, chairName) {
+    if (!chairPhoto || !chairName) {
+      return;
+    }
+
+    const fallbackPhoto = chairPhoto.getAttribute("src") || "";
+    const photoBaseName = slugifyName(chairName);
+    const photoCandidates = [
+      "img/people/" + photoBaseName + ".jpg",
+      "img/people/" + photoBaseName + ".jpeg",
+      "img/people/" + photoBaseName + ".png",
+      "img/people/" + photoBaseName + ".webp"
+    ];
+
+    let candidateIndex = 0;
+    const tryNextPhoto = () => {
+      if (candidateIndex < photoCandidates.length) {
+        chairPhoto.src = photoCandidates[candidateIndex];
+        candidateIndex += 1;
+        return;
+      }
+
+      if (fallbackPhoto) {
+        chairPhoto.removeEventListener("error", tryNextPhoto);
+        chairPhoto.src = fallbackPhoto;
+      }
+    };
+
+    chairPhoto.addEventListener("error", tryNextPhoto);
+    tryNextPhoto();
+  }
+
   function linkedinIconSvg() {
     return '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.94 8.5H3.56V20h3.38V8.5zM5.25 3A1.95 1.95 0 1 0 5.3 6.9 1.95 1.95 0 0 0 5.25 3zM20.44 13.2c0-3.54-1.89-5.18-4.42-5.18-2.04 0-2.95 1.13-3.46 1.92V8.5H9.18c.05.96 0 11.5 0 11.5h3.38v-6.42c0-.34.03-.68.13-.92.27-.68.88-1.38 1.9-1.38 1.34 0 1.87 1.02 1.87 2.52V20h3.38v-6.8z"/></svg>';
   }
@@ -30,9 +71,14 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      const chairPhoto = card.querySelector(".chair-photo");
+      const profileUrl = card.dataset.linkedinProfile?.trim() || linkedinSearchUrl(chairName);
+
+      loadChairPhoto(chairPhoto, chairName);
+
       const linkedinLink = document.createElement("a");
       linkedinLink.className = "chair-linkedin";
-      linkedinLink.href = linkedinSearchUrl(chairName);
+      linkedinLink.href = profileUrl;
       linkedinLink.target = "_blank";
       linkedinLink.rel = "noopener noreferrer";
       linkedinLink.setAttribute("aria-label", "Open LinkedIn for " + chairName);
