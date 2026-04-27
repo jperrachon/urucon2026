@@ -10,6 +10,9 @@ permissions:
   id-token: write
   contents: read
 
+env:
+  CFP_STACK_NAME: urucon-cfp-backend
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -47,12 +50,82 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           aws-region: ${{ vars.AWS_REGION }}
 
+      - name: Package Lambda code
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          zip -j dist/cfp-submission-lambda.zip backend/cfp_handler.py
+
+      - name: Upload Lambda package artifact
+        id: lambda_artifact
+        env:
+          S3_BUCKET: ${{ vars.S3_BUCKET }}
+        run: |
+          set -euo pipefail
+          LAMBDA_KEY="deployments/cfp-submission-lambda-${GITHUB_SHA}.zip"
+          aws s3 cp dist/cfp-submission-lambda.zip "s3://${S3_BUCKET}/${LAMBDA_KEY}"
+          echo "lambda_key=${LAMBDA_KEY}" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy CFP backend stack
+        id: cfp_backend
+        env:
+          S3_BUCKET: ${{ vars.S3_BUCKET }}
+          STACK_NAME: ${{ env.CFP_STACK_NAME }}
+          LAMBDA_KEY: ${{ steps.lambda_artifact.outputs.lambda_key }}
+        run: |
+          set -euo pipefail
+
+          CFP_SUBMISSIONS_BUCKET="${S3_BUCKET}-cfp-submissions"
+          CFP_CORS_ORIGIN="*"
+
+          aws cloudformation deploy \
+            --stack-name "${STACK_NAME}" \
+            --template-file backend/template.yaml \
+            --capabilities CAPABILITY_NAMED_IAM \
+            --parameter-overrides \
+              LambdaCodeS3Bucket="${S3_BUCKET}" \
+              LambdaCodeS3Key="${LAMBDA_KEY}" \
+              CfpSubmissionBucketName="${CFP_SUBMISSIONS_BUCKET}" \
+              CfpCorsOrigin="${CFP_CORS_ORIGIN}"
+
+          API_BASE_URL=$(aws cloudformation describe-stacks \
+            --stack-name "${STACK_NAME}" \
+            --query "Stacks[0].Outputs[?OutputKey=='CfpApiBaseUrl'].OutputValue" \
+            --output text)
+
+          if [ -z "${API_BASE_URL}" ] || [ "${API_BASE_URL}" = "None" ]; then
+            echo "::error::Could not resolve CfpApiBaseUrl output from CloudFormation stack ${STACK_NAME}."
+            exit 1
+          fi
+
+          echo "api_base_url=${API_BASE_URL}" >> "$GITHUB_OUTPUT"
+
+      - name: Write runtime config
+        env:
+          CFP_API_BASE_URL: ${{ steps.cfp_backend.outputs.api_base_url }}
+        run: |
+          set -euo pipefail
+          cat > js/runtime-config.js <<EOF
+          window.__URUCON_CONFIG__ = window.__URUCON_CONFIG__ || {};
+          window.__URUCON_CONFIG__.CFP_API_BASE_URL = "${CFP_API_BASE_URL}";
+          EOF
+
+      - name: Validate CFP API health endpoint
+        env:
+          CFP_API_BASE_URL: ${{ steps.cfp_backend.outputs.api_base_url }}
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error "${CFP_API_BASE_URL}/api/cfp/health" > /dev/null
+          echo "CFP API health check passed."
+
       - name: Sync files to S3
         run: |
           aws s3 sync . s3://${{ vars.S3_BUCKET }} --delete \
             --exclude ".git/*" \
             --exclude ".github/*" \
-            --exclude "README.md"
+            --exclude "README.md" \
+            --exclude "backend/*" \
+            --exclude "dist/*"
 
       - name: Verify published files in S3
         run: |
@@ -60,6 +133,8 @@ jobs:
           aws s3 ls s3://${{ vars.S3_BUCKET }}/index.html
           aws s3 ls s3://${{ vars.S3_BUCKET }}/css/styles.css
           aws s3 ls s3://${{ vars.S3_BUCKET }}/js/main.js
+          aws s3 ls s3://${{ vars.S3_BUCKET }}/js/cfp-form.js
+          aws s3 ls s3://${{ vars.S3_BUCKET }}/js/runtime-config.js
           echo "S3 verification complete: key site files exist in bucket."
 
       - name: Invalidate CloudFront cache
