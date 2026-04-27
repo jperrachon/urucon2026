@@ -18,352 +18,458 @@
 <body>
     <div id="site-header"></div>
 
-    <!-- CFP -->
-    <section class="cfp-hero">
-        <div class="cfp-hero-inner">
-            <span class="cfp-hero-tag">Call For Papers</span>
-            <h1 class="cfp-hero-title">Coming <em>Soon</em></h1>
-            <p class="cfp-hero-sub">
-                IEEE URUCON 2026 Conference invites engineering professionals from industries,
-                R&D organizations, academic institutions, government departments and research scholars,
-                to submit original professional presentations and full length research contributions.
-            </p>
-        </div>
-    </section>
 
-    <!--  CFP BODY  -->
+    <!-- SECTION 1 – CALL FOR PAPERS (form) -->
+    <main class="main">
+        <div class="main__inner">
+
+            <!-- Left column: form -->
+            <section class="content">
+                <h1 class="content__title">Call for Papers</h1>
+                <p class="content__subtitle">Open call for the submission of scientific papers</p>
+                <p class="content__description">
+                    Welcome to the URUCON 2026 paper submission platform. We invite
+                    researchers, professors, professionals, and students to submit original works that
+                    contribute knowledge, innovation, and high-impact applications in engineering, science,
+                    and technology. From this space, you will be able to register your proposal and upload
+                    the manuscript for peer review.
+                </p>
+
+                <form class="form" onsubmit="return false;">
+
+                    <!-- Row 1 -->
+                    <div class="form__row form__row--two">
+                        <div class="form__field">
+                            <span class="form__icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.8">
+                                    <circle cx="12" cy="8" r="4" />
+                                    <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+                                </svg>
+                            </span>
+                            <input type="text" class="form__input" placeholder="Full name" />
+                        </div>
+
+                        <div class="form__field">
+                            <span class="form__icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.8">
+                                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                                    <path d="M2 7l10 7 10-7" />
+                                </svg>
+                            </span>
+                            <input type="email" class="form__input" placeholder="Email address" />
+                        </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="form__field form__field--full">
+                        <span class="form__icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg>
+                        </span>
+                        <input type="text" class="form__input" placeholder="Paper title" />
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="form__field form__field--full form__field--select">
+                        <span class="form__icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8">
+                                <rect x="3" y="3" width="7" height="7" />
+                                <rect x="14" y="3" width="7" height="7" />
+                                <rect x="14" y="14" width="7" height="7" />
+                                <rect x="3" y="14" width="7" height="7" />
+                            </svg>
+                        </span>
+
+                        <select class="form__select">
+                            <option value="" disabled selected>Research area</option>
+                            <option>Electronics, Circuits &amp; Systems</option>
+                            <option>Artificial Intelligence &amp; Machine Learning</option>
+                            <option>Telecommunications &amp; Signal Processing</option>
+                            <option>Power Systems &amp; Renewable Energy</option>
+                            <option>Cybersecurity &amp; Network Engineering</option>
+                            <option>IoT, Embedded Systems &amp; Control</option>
+                            <option>Biomedical Engineering &amp; Health Tech</option>
+                            <option>Engineering Education &amp; Innovation</option>
+                        </select>
+
+                        <span class="form__chevron">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </span>
+                    </div>
+
+                    <!-- Row 4 -->
+                    <div class="form__row form__row--resumen">
+
+                        <div class="form__field form__field--textarea">
+                            <span class="form__icon form__icon--top">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.8">
+                                    <line x1="3" y1="6" x2="21" y2="6" />
+                                    <line x1="3" y1="12" x2="21" y2="12" />
+                                    <line x1="3" y1="18" x2="15" y2="18" />
+                                </svg>
+                            </span>
+
+                            <textarea class="form__textarea" placeholder="Abstract"></textarea>
+                        </div>
+
+                        <div class="upload-box">
+                            <svg class="upload-box__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+
+                                <path d="M6 17.5h11a3.5 3.5 0 0 0 .3-7
+                                5 5 0 0 0-9.8-1.3A4 4 0 0 0 6 17.5z" />
+
+                                <path d="M12 16V10" />
+                                <path d="M9.8 12.2L12 10l2.2 2.2" />
+
+                            </svg>
+
+                            <p class="upload-box__label"><strong>Upload PDF file</strong></p>
+                            <p class="upload-box__hint">Drag your paper here<br>or select a file</p>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="form__actions">
+
+                        <button type="submit" class="btn btn--primary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                <polyline points="17 8 12 3 7 8" />
+                                <line x1="12" y1="3" x2="12" y2="15" />
+                            </svg>
+                            Upload paper
+                        </button>
+
+                        <button type="button" class="btn btn--secondary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                <polyline points="7 10 12 15 17 10" />
+                                <line x1="12" y1="15" x2="12" y2="3" />
+                            </svg>
+                            Download template
+                        </button>
+
+                        <button type="button" class="btn btn--secondary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <line x1="9" y1="9" x2="15" y2="9" />
+                                <line x1="9" y1="13" x2="15" y2="13" />
+                                <line x1="9" y1="17" x2="12" y2="17" />
+                            </svg>
+                            Author guidelines
+                        </button>
+
+                    </div>
+                </form>
+            </section>
+
+            <!-- Right column: sidebar -->
+            <aside class="sidebar">
+
+                <div class="card-chair">
+                    <div class="card-chair__header">Event Chair</div>
+
+                    <div class="card-chair__body">
+                        <img src="img/analiaconde.jpeg" alt="Analía Conde" class="chair-photo">
+
+                        <div class="card-chair__info">
+                            <p class="card-chair__name"><strong>Analía Conde,</strong> Event Chair</p>
+                            <p class="card-chair__quote">
+                                "We look forward to receiving papers that inspire new conversations,
+                                connections, and advances for our scientific and technological community."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-info">
+
+                    <div class="card-info__item">
+                        <div class="card-info__icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white"
+                                stroke-width="1.8">
+                                <rect x="3" y="4" width="18" height="18" rx="2" />
+                                <line x1="16" y1="2" x2="16" y2="6" />
+                                <line x1="8" y1="2" x2="8" y2="6" />
+                                <line x1="3" y1="10" x2="21" y2="10" />
+                            </svg>
+                        </div>
+
+                        <div>
+                            <p class="card-info__label">Deadline</p>
+                            <p class="card-info__value">June 30, 2026</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info__item">
+                        <div class="card-info__icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white"
+                                stroke-width="1.8">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg>
+                        </div>
+
+                        <div>
+                            <p class="card-info__label">PDF Format</p>
+                            <p class="card-info__value">Maximum 10 pages</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info__item">
+                        <div class="card-info__icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white"
+                                stroke-width="1.8">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+
+                        <div>
+                            <p class="card-info__label">Peer Review</p>
+                            <p class="card-info__value">Double-blind review process</p>
+                        </div>
+                    </div>
+
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+
+    <!-- SECCIÓN 2 – SUBMISSION INSTRUCTIONS & REVIEW -->
+
     <div class="cfp-body">
 
-        <!-- LEFT: main content -->
-        <div class="cfp-main">
+        <div class="cfp-inner">
 
-            <!--
-            <div class="cfp-intro reveal">
-                <span class="cfp-section-tag">Overview</span>
-                <h2 class="cfp-section-title">About the <em>Conference</em></h2>
-                <p>
-                    IEEE URUCON 2026 Conference, sponsored by the IEEE Cono Sur Council and the IEEE Uruguay Section,
-                    is a premier venue for presenting original professional and research contributions in engineering
-                    and related fields.
-                </p>
-                <p>
-                    The conference will be held in hybrid format in Montevideo from November 16th to 18th, 2026.
-                    Accepted papers written in English will be submitted to the IEEE Xplore Digital Library.
-                    Papers in Spanish are also welcome, though only English-language final manuscripts will be indexed.
-                </p>
-            </div>
+            <div class="cfp-main">
 
-            <div class="reveal">
-                <span class="cfp-section-tag">Scope</span>
-                <h2 class="cfp-section-title">Topics of <em>Interest</em></h2>
-                <div class="cfp-topics-grid">
+                <!-- Submission Instructions -->
+                <div class="cfp-block">
+                    <span class="cfp-section-tag">Submission</span>
+                    <h2 class="cfp-section-title">Submission <em>Instructions</em></h2>
+                    <div class="cfp-steps">
 
-                    <div class="cfp-topic-card">
-                        <div class="cfp-topic-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="2" y="3" width="20" height="14" rx="2" />
-                                <path d="M8 21h8M12 17v4" />
-                            </svg>
+                        <div class="cfp-step">
+                            <div class="cfp-step-num">1</div>
+                            <div class="cfp-step-body">
+                                <div class="cfp-step-title">Prepare your manuscript</div>
+                                <div class="cfp-step-desc">
+                                    Use the double-column A4 <a
+                                        href="https://www.ieee.org/conferences/publishing/templates.html"
+                                        target="_blank">IEEE Conference Template</a>.
+                                    Initial submissions must be up to 4 pages. Final accepted papers may include up to 5
+                                    pages.
+                                    The official language is English, although papers in Spanish will also be accepted.
+                                    Only final paper PDF manuscripts from registered authors (Authors Registration fee
+                                    paid),
+                                    English written, and accepted will be submitted to the IEEE Xplore Digital Library,
+                                    as English is the world technical indexing language.
+                                </div>
+                            </div>
                         </div>
-                        <div class="cfp-topic-text">Electronics, Circuits &amp; Systems</div>
-                    </div>
 
-                    <div class="cfp-topic-card">
-                        <div class="cfp-topic-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                                <path d="M2 17l10 5 10-5" />
-                                <path d="M2 12l10 5 10-5" />
-                            </svg>
+                        <div class="cfp-step">
+                            <div class="cfp-step-num">2</div>
+                            <div class="cfp-step-body">
+                                <div class="cfp-step-title">Check formatting requirements</div>
+                                <div class="cfp-step-desc">
+                                    Verify margins are correctly set to prevent submission rejection. Ensure figures and
+                                    graphics
+                                    do not invade margins. Remove all embedded hyperlinks from the PDF before uploading.
+                                    Include all co-authors in the same order as listed in the paper.
+                                </div>
+                            </div>
                         </div>
-                        <div class="cfp-topic-text">Artificial Intelligence &amp; Machine Learning</div>
-                    </div>
 
-                    <div class="cfp-topic-card">
-                        <div class="cfp-topic-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10" />
-                                <path
-                                    d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                            </svg>
+                        <div class="cfp-step">
+                            <div class="cfp-step-num">3</div>
+                            <div class="cfp-step-body">
+                                <div class="cfp-step-title">Create an EDAS account</div>
+                                <div class="cfp-step-desc">
+                                    All authors must create an <a href="https://edas.info" target="_blank">EDAS
+                                        account</a>
+                                    and
+                                    be registered in the system before submission. This avoids issues during peer review
+                                    and
+                                    final paper upload.
+                                </div>
+                            </div>
                         </div>
-                        <div class="cfp-topic-text">Telecommunications &amp; Signal Processing</div>
-                    </div>
 
-                    <div class="cfp-topic-card">
-                        <div class="cfp-topic-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-                            </svg>
+                        <div class="cfp-step">
+                            <div class="cfp-step-num">4</div>
+                            <div class="cfp-step-body">
+                                <div class="cfp-step-title">Submit via EDAS</div>
+                                <div class="cfp-step-desc">
+                                    Upload your manuscript through the EDAS conference submission portal. Each author
+                                    may
+                                    upload
+                                    up to two papers. One author registration covers the presentation of up to three
+                                    papers
+                                    at the conference.
+                                </div>
+                            </div>
                         </div>
-                        <div class="cfp-topic-text">Power Systems &amp; Renewable Energy</div>
-                    </div>
 
-                    <div class="cfp-topic-card">
-                        <div class="cfp-topic-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                            </svg>
+                        <div class="cfp-step">
+                            <div class="cfp-step-num">5</div>
+                            <div class="cfp-step-body">
+                                <div class="cfp-step-title">Complete IEEE eCopyright (final submission)</div>
+                                <div class="cfp-step-desc">
+                                    Before uploading the final paper, the first author must complete the
+                                    <a href="https://www.edas.info/showFAQ.php?q=315" target="_blank">IEEE Electronic
+                                        Copyright Form (ECF)</a> through EDAS.
+                                    Only papers from registered, fee-paid authors will be considered for IEEE Xplore
+                                    indexing.
+                                </div>
+                            </div>
                         </div>
-                        <div class="cfp-topic-text">Cybersecurity &amp; Network Engineering</div>
-                    </div>
 
-                    <div class="cfp-topic-card">
-                        <div class="cfp-topic-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="4" y="4" width="6" height="6" rx="1" />
-                                <rect x="14" y="4" width="6" height="6" rx="1" />
-                                <rect x="4" y="14" width="6" height="6" rx="1" />
-                                <rect x="14" y="14" width="6" height="6" rx="1" />
-                            </svg>
-                        </div>
-                        <div class="cfp-topic-text">IoT, Embedded Systems &amp; Control</div>
                     </div>
-
-                    <div class="cfp-topic-card">
-                        <div class="cfp-topic-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path
-                                    d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18" />
-                            </svg>
-                        </div>
-                        <div class="cfp-topic-text">Biomedical Engineering &amp; Health Tech</div>
-                    </div>
-
-                    <div class="cfp-topic-card">
-                        <div class="cfp-topic-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="3" />
-                                <path
-                                    d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
-                            </svg>
-                        </div>
-                        <div class="cfp-topic-text">Engineering Education &amp; Innovation</div>
-                    </div>
-
                 </div>
-            </div>
-            -->
 
-            <!-- Submission Instructions -->
-            <div class="reveal">
-                <span class="cfp-section-tag">Submission</span>
-                <h2 class="cfp-section-title">Submission <em>Instructions</em></h2>
-                <div class="cfp-steps">
+                <!-- Review Process -->
+                <div class="cfp-block">
+                    <span class="cfp-section-tag">Evaluation</span>
+                    <h2 class="cfp-section-title">Review <em>Process</em></h2>
+                    <div class="cfp-review-cards">
 
-                    <div class="cfp-step">
-                        <div class="cfp-step-num">1</div>
-                        <div class="cfp-step-body">
-                            <div class="cfp-step-title">Prepare your manuscript</div>
-                            <div class="cfp-step-desc">
-                                Use the double-column A4 <a
-                                    href="https://www.ieee.org/conferences/publishing/templates.html"
-                                    target="_blank">IEEE
-                                    Conference Template</a>.
-                                Initial submissions must be up to 4 pages. Final accepted papers may include up to 5
-                                pages.
-                                The official language is English, although papers in Spanish will also be accepted.
-                                Only final paper PDF manuscripts from registered authors (Authors Registration fee paid), 
-                                English written, and accepted will be submitted to the 
-                                IEEE Xplore Digital Library, as English is the world technical indexing lenguage.
+                        <div class="cfp-review-card rc-accept">
+                            <div class="cfp-review-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M20 6L9 17l-5-5" />
+                                </svg>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="cfp-step">
-                        <div class="cfp-step-num">2</div>
-                        <div class="cfp-step-body">
-                            <div class="cfp-step-title">Check formatting requirements</div>
-                            <div class="cfp-step-desc">
-                                Verify margins are correctly set to prevent submission rejection. Ensure figures and
-                                graphics
-                                do not invade margins. Remove all embedded hyperlinks from the PDF before uploading.
-                                Include all co-authors in the same order as listed in the paper.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="cfp-step">
-                        <div class="cfp-step-num">3</div>
-                        <div class="cfp-step-body">
-                            <div class="cfp-step-title">Create an EDAS account</div>
-                            <div class="cfp-step-desc">
-                                All authors must create an <a href="https://edas.info" target="_blank">EDAS account</a>
+                            <div class="cfp-review-label">Acceptance</div>
+                            <div class="cfp-review-desc">Paper meets all requirements and is accepted for publication
                                 and
-                                be registered in the system
-                                before submission. This avoids issues during peer review and final paper upload.
-                            </div>
+                                presentation.</div>
                         </div>
-                    </div>
 
-                    <div class="cfp-step">
-                        <div class="cfp-step-num">4</div>
-                        <div class="cfp-step-body">
-                            <div class="cfp-step-title">Submit via EDAS</div>
-                            <div class="cfp-step-desc">
-                                Upload your manuscript through the EDAS conference submission portal. Each author may
-                                upload
-                                up to two papers. One author registration covers the presentation of up to three papers
-                                at
-                                the conference.
+                        <div class="cfp-review-card rc-revise">
+                            <div class="cfp-review-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                </svg>
                             </div>
+                            <div class="cfp-review-label">Minor Revision</div>
+                            <div class="cfp-review-desc">Authors must address reviewers' suggestions in the final
+                                submission
+                                to be accepted.</div>
                         </div>
-                    </div>
 
-                    <div class="cfp-step">
-                        <div class="cfp-step-num">5</div>
-                        <div class="cfp-step-body">
-                            <div class="cfp-step-title">Complete IEEE eCopyright (final submission)</div>
-                            <div class="cfp-step-desc">
-                                Before uploading the final paper, the first author must complete the
-                                <a href="https://www.edas.info/showFAQ.php?q=315" target="_blank">IEEE Electronic
-                                    Copyright
-                                    Form (ECF)</a> through EDAS.
-                                Only papers from registered, fee-paid authors will be considered for IEEE Xplore
-                                indexing.
+                        <div class="cfp-review-card rc-reject">
+                            <div class="cfp-review-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <line x1="18" y1="6" x2="6" y2="18" />
+                                    <line x1="6" y1="6" x2="18" y2="18" />
+                                </svg>
                             </div>
+                            <div class="cfp-review-label">Rejection</div>
+                            <div class="cfp-review-desc">Paper does not meet the standards required for acceptance at
+                                this
+                                conference.</div>
                         </div>
-                    </div>
 
+                    </div>
+                    <div class="cfp-review-note">
+                        All submissions are subject to IEEE's plagiarism policy. Authors are encouraged to properly cite
+                        prior work to avoid high similarity rates. See the
+                        <a href="https://www.ieee.org/publications/rights/plagiarism/plagiarism.html"
+                            target="_blank">IEEE
+                            Plagiarism Policy</a> for details.
+                    </div>
                 </div>
+
             </div>
 
-            <!-- Review Process -->
-            <div class="reveal">
-                <span class="cfp-section-tag">Evaluation</span>
-                <h2 class="cfp-section-title">Review <em>Process</em></h2>
-                <div class="cfp-review-cards">
+            <!-- Sidebar fechas y descargas -->
+            <aside class="cfp-sidebar">
 
-                    <div class="cfp-review-card rc-accept">
-                        <div class="cfp-review-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M20 6L9 17l-5-5" />
-                            </svg>
-                        </div>
-                        <div class="cfp-review-label">Acceptance</div>
-                        <div class="cfp-review-desc">Paper meets all requirements and is accepted for publication and
-                            presentation.</div>
+                <div class="cfp-dates-card">
+                    <div class="cfp-dates-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" />
+                            <line x1="16" y1="2" x2="16" y2="6" />
+                            <line x1="8" y1="2" x2="8" y2="6" />
+                            <line x1="3" y1="10" x2="21" y2="10" />
+                        </svg>
+                        <span>Important Dates</span>
                     </div>
-
-                    <div class="cfp-review-card rc-revise">
-                        <div class="cfp-review-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
-                            </svg>
+                    <div class="cfp-dates-list">
+                        <div class="cfp-date-item">
+                            <div class="cfp-date-label">Paper Submission</div>
+                            <div class="cfp-date-value">TBD, 2026</div>
+                            <div class="cfp-date-note">Initial manuscript (up to 4 pages)</div>
                         </div>
-                        <div class="cfp-review-label">Minor Revision</div>
-                        <div class="cfp-review-desc">Authors must address reviewers' suggestions in the final submission
-                            to
-                            be accepted.</div>
-                    </div>
-
-                    <div class="cfp-review-card rc-reject">
-                        <div class="cfp-review-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <line x1="18" y1="6" x2="6" y2="18" />
-                                <line x1="6" y1="6" x2="18" y2="18" />
-                            </svg>
+                        <div class="cfp-date-item">
+                            <div class="cfp-date-label">Notification of Acceptance</div>
+                            <div class="cfp-date-value">TBD, 2026</div>
+                            <div class="cfp-date-note">Results communicated via EDAS</div>
                         </div>
-                        <div class="cfp-review-label">Rejection</div>
-                        <div class="cfp-review-desc">Paper does not meet the standards required for acceptance at this
-                            conference.</div>
+                        <div class="cfp-date-item">
+                            <div class="cfp-date-label">Final Submission</div>
+                            <div class="cfp-date-value">TBD, 2026</div>
+                            <div class="cfp-date-note">Camera-ready paper (up to 5 pages)</div>
+                        </div>
+                        <div class="cfp-date-item">
+                            <div class="cfp-date-label">Conference</div>
+                            <div class="cfp-date-value">Nov 16–18, 2026</div>
+                            <div class="cfp-date-note">Montevideo, Uruguay (Hybrid)</div>
+                        </div>
                     </div>
-
                 </div>
-                <div class="cfp-review-note">
-                    All submissions are subject to IEEE's plagiarism policy. Authors are encouraged to properly cite
-                    prior work to avoid high similarity rates. See the
-                    <a href="https://www.ieee.org/publications/rights/plagiarism/plagiarism.html" target="_blank">IEEE
-                        Plagiarism Policy</a> for details.
-                </div>
-            </div>
 
+                <a href="https://s3.amazonaws.com/edas.assets/ieeeurucon2024/IEEE_URUCON_2024_call_for_papers.pdf"
+                    class="cfp-download-card" target="_blank">
+                    <div class="cfp-download-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                    </div>
+                    <div class="cfp-download-text">
+                        <div class="cfp-download-title">Download CFP (PDF)</div>
+                        <div class="cfp-download-sub">Download the CFP of the #URUCON2024 for social networks</div>
+                    </div>
+                </a>
+
+                <div class="cfp-contact-card">
+                    <div class="cfp-contact-title">Questions?</div>
+                    <p>For doubts about the submission process, please contact us.</p>
+                    <a href="mailto:ieeeurucon2021-chairs@edas.info" class="cfp-btn-contact">Contact</a>
+                </div>
+
+            </aside>
         </div>
-        <!-- END LEFT -->
-
-        <!-- RIGHT: sidebar -->
-        <aside class="cfp-sidebar">
-
-            <!-- Important Dates -->
-            <div class="cfp-dates-card reveal">
-                <div class="cfp-dates-header">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <rect x="3" y="4" width="18" height="18" rx="2" />
-                        <line x1="16" y1="2" x2="16" y2="6" />
-                        <line x1="8" y1="2" x2="8" y2="6" />
-                        <line x1="3" y1="10" x2="21" y2="10" />
-                    </svg>
-                    <span>Important Dates</span>
-                </div>
-                <div class="cfp-dates-list">
-                    <div class="cfp-date-item">
-                        <div class="cfp-date-label">Paper Submission</div>
-                        <div class="cfp-date-value">TBD, 2026</div>
-                        <div class="cfp-date-note">Initial manuscript (up to 4 pages)</div>
-                    </div>
-                    <div class="cfp-date-item">
-                        <div class="cfp-date-label">Notification of Acceptance</div>
-                        <div class="cfp-date-value">TBD, 2026</div>
-                        <div class="cfp-date-note">Results communicated via EDAS</div>
-                    </div>
-                    <div class="cfp-date-item">
-                        <div class="cfp-date-label">Final Submission</div>
-                        <div class="cfp-date-value">TBD, 2026</div>
-                        <div class="cfp-date-note">Camera-ready paper (up to 5 pages)</div>
-                    </div>
-                    <div class="cfp-date-item">
-                        <div class="cfp-date-label">Conference</div>
-                        <div class="cfp-date-value">Nov 16ÔÇô18, 2026</div>
-                        <div class="cfp-date-note">Montevideo, Uruguay (Hybrid)</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Download CFP -->
-            <a href="https://s3.amazonaws.com/edas.assets/ieeeurucon2024/IEEE_URUCON_2024_call_for_papers.pdf" class="cfp-download-card reveal">
-                <div class="cfp-download-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                        <polyline points="7 10 12 15 17 10" />
-                        <line x1="12" y1="15" x2="12" y2="3" />
-                    </svg>
-                </div>
-                <div class="cfp-download-text">
-                    <div class="cfp-download-title">Download CFP (PDF)</div>
-                    <div class="cfp-download-sub">Download the CFP of the #URUCON2024 for social networks</div>
-                </div>
-            </a>
-
-            <!-- Contact -->
-            <div class="cfp-contact-card reveal">
-                <div class="cfp-contact-title">Questions?</div>
-                <p>For doubts about the submission process, please contact us.</p>
-                <a href="mailto:ieeeurucon2021-chairs@edas.info" class="cfp-btn-contact">Contact</a>
-            </div>
-
-        </aside>
-
     </div>
-    <!-- -- FIN CFP BODY -- -->
-
-    <!-- -- FOOTER -- -->
     <div id="site-footer"></div>
-
-
 
     <!-- Script -->
     <script src="js/layout.js"></script>
@@ -371,6 +477,3 @@
 </body>
 
 </html>
-
-
-
