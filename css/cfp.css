@@ -1,510 +1,785 @@
-.cfp-hero {
-  min-height: 38vh;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
-  display: flex;
-  align-items: flex-end;
-  padding: 8rem 4rem 4rem;
-  position: relative;
-  overflow: hidden;
-}
+/* ============================================================
+   cfp.css  –  URUCON 2026
+   Hoja de estilos unificada: Sección 1 (formulario) +
+   Sección 2 (submission instructions + review process)
+   ============================================================ */
 
-.cfp-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(circle at 20% 50%, rgba(255,255,255,0.06) 0%, transparent 60%),
-    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.04) 0%, transparent 50%);
-  pointer-events: none;
-}
 
-.cfp-hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
-}
-
-.cfp-hero-inner {
-  max-width: 1100px;
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-.cfp-hero-tag {
-  display: inline-block;
-  font-size: 0.7rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.65);
-  font-weight: 500;
-  margin-bottom: 1rem;
-}
-
-.cfp-hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.1;
-  margin-bottom: 1.2rem;
-}
-
-.cfp-hero-title em {
-  font-style: italic;
-  color: rgba(255,255,255,0.65);
-}
-
-.cfp-hero-sub {
-  color: rgba(255,255,255,0.75);
-  font-size: 0.97rem;
-  line-height: 1.7;
-  max-width: 620px;
+/* ============================================================
+   0. VARIABLES GLOBALES
+   ============================================================ */
+:root {
+  --blue-dark:       #0a2e6e;
+  --blue-primary:    #1a55cc;
+  --blue-accent:     #1e6fd9;
+  --blue-light:      #3b8af7;
+  --blue-header:     #1952c5;
+  --blue-card:       #0f3a85;
+  --blue-tag-bg:     #e8effe;
+  --blue-tag-text:   #1a55cc;
+  --text-body:       #333333;
+  --text-muted:      #666666;
+  --border:          #d0daea;
+  --bg:              #ffffff;
+  --bg-section:      #f5f7fc;
+  --placeholder-bg:  #ccd9ee;
+  --placeholder-text:#4466aa;
+  --radius:          6px;
+  --radius-lg:       10px;
+  --font:            'Barlow', sans-serif;
+  --max-w:           1280px;
+  --pad-x:           40px;
+  /* Padding lateral interno igual al de .main__inner */
+  --inner-pad:       150px;
 }
 
 
-/* ── LAYOUT GENERAL ─────────────────────────── */
+/* ============================================================
+   1. RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-.cfp-body {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 5rem 4rem 7rem;
+body {
+  font-family: var(--font);
+  color: var(--text-body);
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: var(--blue-primary);
+}
+a:hover { text-decoration: underline; }
+
+button, input, select, textarea {
+  font-family: var(--font);
+}
+
+
+/* ============================================================
+   2. SECCIÓN 1 – CALL FOR PAPERS (formulario)
+   ============================================================ */
+
+.main {
+  padding: 100px var(--pad-x) 56px;
+}
+
+.main__inner {
   display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 4rem;
-  align-items: start;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 48px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--inner-pad);
 }
 
-.cfp-main {
+/* Encabezado */
+.content__title {
+  font-size: 46px;
+  font-weight: 800;
+  color: var(--blue-dark);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.content__subtitle {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--blue-light);
+  margin-bottom: 18px;
+}
+
+.content__description {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-body);
+  max-width: 620px;
+  margin-bottom: 28px;
+}
+
+/* ── Formulario ── */
+.form {
   display: flex;
   flex-direction: column;
-  gap: 3.5rem;
+  gap: 10px;
 }
 
-
-/* ── ENCABEZADOS DE SECCIÓN ─────────────────── */
-
-.cfp-section-tag {
-  display: inline-block;
-  color: var(--accent);
-  font-size: 0.68rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-weight: 500;
-  margin-bottom: 0.6rem;
-}
-
-.cfp-section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1.4rem;
-  color: var(--text);
-}
-
-.cfp-section-title em {
-  font-style: italic;
-  color: var(--accent);
-}
-
-
-/* ── INTRO ──────────────────────────────────── */
-
-.cfp-intro p {
-  color: var(--muted);
-  line-height: 1.85;
-  font-size: 0.97rem;
-  margin-bottom: 1rem;
-}
-
-
-/* ── TOPICS ─────────────────────────────────── */
-
-.cfp-topics-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-}
-
-.cfp-topic-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 1rem 1.1rem;
+.form__row {
   display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  transition: border-color 0.2s, transform 0.2s;
+  gap: 10px;
 }
 
-.cfp-topic-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
+.form__row--resumen { align-items: stretch; }
+
+.form__field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+  overflow: hidden;
+  flex: 1;
 }
 
-.cfp-topic-icon {
-  width: 32px;
-  height: 32px;
-  background: var(--accent-light);
-  border-radius: 4px;
+.form__field--full     { width: 100%; }
+.form__field--textarea { flex: 1; align-items: flex-start; }
+
+.form__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.form__icon--top {
+  margin-top: 12px;
+  align-self: flex-start;
+}
+
+.form__input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: var(--text-body);
+  padding: 12px 12px 12px 0;
+  background: transparent;
+}
+.form__input::placeholder { color: #aab3c4; }
+
+.form__select {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #aab3c4;
+  padding: 12px 36px 12px 0;
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+}
+
+.form__chevron {
+  position: absolute;
+  right: 12px;
+  pointer-events: none;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+}
+
+.form__textarea {
+  flex: 1;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 14px;
+  color: var(--text-body);
+  padding: 12px 12px 12px 0;
+  background: transparent;
+  min-height: 120px;
+  line-height: 1.5;
+}
+.form__textarea::placeholder { color: #aab3c4; }
+
+.form__field:focus-within {
+  border-color: var(--blue-primary);
+  box-shadow: 0 0 0 2px rgba(26, 85, 204, .12);
+}
+
+/* Upload box */
+.upload-box {
+  width: 200px;
+  flex-shrink: 0;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+  text-align: center;
+  gap: 6px;
+}
+.upload-box:hover {
+  border-color: var(--blue-primary);
+  background: #f0f5ff;
+}
+.upload-box__label { font-size: 14px; font-weight: 700; color: var(--blue-primary); }
+.upload-box__hint  { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+
+.upload-box__icon{
+  width:44px;
+  height:44px;
+  color:#1a55cc;
+  margin-bottom:6px;
+  opacity:.95;
+}
+
+/* Botones */
+.form__actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: background .2s, border-color .2s, color .2s;
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background: var(--blue-primary);
+  color: #fff;
+  border-color: var(--blue-primary);
+}
+.btn--primary:hover {
+  background: var(--blue-accent);
+  border-color: var(--blue-accent);
+}
+
+.btn--secondary {
+  background: #fff;
+  color: var(--blue-dark);
+  border-color: var(--border);
+}
+.btn--secondary:hover {
+  border-color: var(--blue-primary);
+  color: var(--blue-primary);
+}
+
+/* ── Sidebar sección 1 ── */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-chair {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .06);
+}
+
+.card-chair__header {
+  background: var(--blue-header);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 18px;
+  text-align: center;
+}
+
+.card-chair__body { background: #fff; }
+.card-chair__info { padding: 16px 18px 20px; }
+
+.card-chair__name {
+  font-size: 15px;
+  color: var(--blue-dark);
+  margin-bottom: 8px;
+}
+
+.card-chair__quote {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.card-info {
+  background: var(--blue-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-info__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+.card-info__item:last-child { border-bottom: none; }
+
+.card-info__icon {
+  background: rgba(255, 255, 255, .12);
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-.cfp-topic-icon svg {
-  width: 16px;
-  height: 16px;
-  stroke: var(--accent);
+.card-info__label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2px;
 }
 
-.cfp-topic-text {
-  font-size: 0.84rem;
-  line-height: 1.45;
-  color: var(--text);
-  padding-top: 0.1rem;
+.card-info__value {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, .75);
+}
+
+.chair-photo {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--placeholder-bg);
+  color: var(--placeholder-text);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  border: 2px dashed var(--placeholder-text);
+  border-radius: var(--radius);
+  line-height: 1.4;
+}
+.placeholder--logo-urucon { width: 180px; height: 48px; }
+.placeholder--logo-ieee   { width: 110px; height: 48px; }
+
+
+/* ============================================================
+   3. DIVISOR
+   ============================================================ */
+.section-divider {
+  height: 6px;
+  background: linear-gradient(90deg, var(--blue-primary) 0%, var(--blue-light) 100%);
 }
 
 
-/* ── STEPS ──────────────────────────────────── */
+/* ============================================================
+   4. SECCIÓN 2 – SUBMISSION INSTRUCTIONS & REVIEW
+   ============================================================ */
 
+/*
+   El truco: .cfp-body ocupa el 100% del viewport con su background,
+   pero el contenido interno usa el mismo max-width + padding lateral
+   que .main__inner para alinear perfectamente con la sección 1.
+*/
+
+/* Wrapper externo: sólo background, sin restricción de ancho */
+.cfp-body {
+  background: var(--bg-section);
+  width: 100%;
+  padding: 56px var(--pad-x) 72px;
+}
+
+.cfp-body{
+  background: var(--bg-section);
+  width:100%;
+  padding:56px var(--pad-x) 72px;
+}
+
+.cfp-inner{
+  max-width: var(--max-w);
+  margin:0 auto;
+  padding:0 var(--inner-pad);
+
+  display:grid !important;
+  grid-template-columns: minmax(0,1fr) 340px !important;
+  gap:48px;
+  align-items:start;
+}
+
+.cfp-main{
+  grid-column:1;
+}
+
+.cfp-sidebar{
+  grid-column:2;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+/* responsive recién abajo */
+@media (max-width:1024px){
+  .cfp-inner{
+    grid-template-columns:1fr !important;
+  }
+
+  .cfp-main,
+  .cfp-sidebar{
+    grid-column:auto;
+  }
+}
+
+.cfp-block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Tags de sección */
+.cfp-section-tag {
+  display: inline-block;
+  background: var(--blue-tag-bg);
+  color: var(--blue-tag-text);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 4px;
+  width: fit-content;
+}
+
+.cfp-section-title {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--blue-dark);
+  line-height: 1.15;
+  margin: 0;
+}
+.cfp-section-title em {
+  font-style: normal;
+  color: var(--blue-primary);
+}
+
+/* ── Steps ── */
 .cfp-steps {
   display: flex;
   flex-direction: column;
+  gap: 0;
 }
 
 .cfp-step {
   display: flex;
-  gap: 1.4rem;
-  padding: 1.4rem 0;
+  gap: 20px;
+  padding: 24px 0;
   border-bottom: 1px solid var(--border);
 }
-
-.cfp-step:first-child { border-top: 1px solid var(--border); }
+.cfp-step:last-child { border-bottom: none; }
 
 .cfp-step-num {
   width: 36px;
   height: 36px;
-  background: var(--accent);
+  border-radius: 50%;
+  background: var(--blue-primary);
   color: #fff;
-  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 0.95rem;
-  font-weight: 700;
   flex-shrink: 0;
+  margin-top: 2px;
+  box-shadow: 0 2px 8px rgba(26, 85, 204, .25);
 }
 
-.cfp-step-body { flex: 1; }
+.cfp-step-body { flex: 1; min-width: 0; }
 
 .cfp-step-title {
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--text);
-  margin-bottom: 0.35rem;
-  letter-spacing: 0.01em;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--blue-dark);
+  margin-bottom: 6px;
 }
 
 .cfp-step-desc {
-  font-size: 0.83rem;
-  color: var(--muted);
+  font-size: 14px;
   line-height: 1.65;
+  color: var(--text-body);
 }
-
-.cfp-step-desc a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
+.cfp-step-desc a { color: var(--blue-primary); }
 .cfp-step-desc a:hover { text-decoration: underline; }
 
-
-/* ── REVIEW PROCESS ─────────────────────────── */
-
+/* ── Review cards ── */
 .cfp-review-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 16px;
 }
 
 .cfp-review-card {
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 1.4rem 1.2rem;
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  border: 1.5px solid var(--border);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  transition: border-color 0.2s;
+  gap: 10px;
+  transition: box-shadow .2s, transform .15s;
+}
+.cfp-review-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .08);
+  transform: translateY(-2px);
 }
 
-.cfp-review-card:hover { border-color: var(--accent); }
-
 .cfp-review-icon {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 0.9rem;
+  flex-shrink: 0;
 }
+.cfp-review-icon svg { width: 22px; height: 22px; }
 
-.cfp-review-icon svg {
-  width: 20px;
-  height: 20px;
-  fill: none;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.rc-accept .cfp-review-icon { background: #e8f5e9; }
-.rc-accept .cfp-review-icon svg { stroke: #2e7d32; }
-
-.rc-revise .cfp-review-icon { background: #fff8e1; }
-.rc-revise .cfp-review-icon svg { stroke: #f57f17; }
-
-.rc-reject .cfp-review-icon { background: #fce4ec; }
-.rc-reject .cfp-review-icon svg { stroke: #c62828; }
+.rc-accept .cfp-review-icon     { background: #e6f7ee; }
+.rc-accept .cfp-review-icon svg { stroke: #1a8c4e; }
+.rc-revise .cfp-review-icon     { background: #fff8e1; }
+.rc-revise .cfp-review-icon svg { stroke: #c07b00; }
+.rc-reject .cfp-review-icon     { background: #fdecea; }
+.rc-reject .cfp-review-icon svg { stroke: #c0392b; }
 
 .cfp-review-label {
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--text);
-  margin-bottom: 0.4rem;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--blue-dark);
 }
 
 .cfp-review-desc {
-  font-size: 0.78rem;
-  color: var(--muted);
-  line-height: 1.55;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
 }
 
 .cfp-review-note {
-  margin-top: 1.2rem;
-  padding: 1rem 1.2rem;
-  background: var(--accent-light);
-  border-left: 3px solid var(--accent);
-  border-radius: 0 4px 4px 0;
-  font-size: 0.83rem;
-  color: var(--text);
+  font-size: 13px;
+  color: var(--text-muted);
   line-height: 1.6;
+  padding: 16px 20px;
+  background: #eef2fb;
+  border-left: 3px solid var(--blue-primary);
+  border-radius: 0 var(--radius) var(--radius) 0;
 }
-
-.cfp-review-note a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
+.cfp-review-note a { color: var(--blue-primary); }
 .cfp-review-note a:hover { text-decoration: underline; }
 
-
-/* ── SIDEBAR ────────────────────────────────── */
-
+/* ── Sidebar sección 2 ── */
 .cfp-sidebar {
-  position: sticky;
-  top: 88px;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 20px;
 }
 
-/* Fechas */
 .cfp-dates-card {
-  background: var(--surface);
+  background: #fff;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .06);
 }
 
 .cfp-dates-header {
-  background: var(--accent);
+  background: var(--blue-card);
   color: #fff;
-  padding: 1.1rem 1.4rem;
   display: flex;
   align-items: center;
-  gap: 0.7rem;
+  gap: 10px;
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 700;
 }
-
 .cfp-dates-header svg {
   width: 18px;
   height: 18px;
-  stroke: rgba(255,255,255,0.8);
-  fill: none;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  stroke: #fff;
   flex-shrink: 0;
 }
 
-.cfp-dates-header span {
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-.cfp-dates-list { padding: 0.4rem 0; }
+.cfp-dates-list { padding: 4px 0; }
 
 .cfp-date-item {
-  padding: 0.95rem 1.4rem;
+  padding: 14px 20px;
   border-bottom: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
 }
-
 .cfp-date-item:last-child { border-bottom: none; }
 
 .cfp-date-label {
-  font-size: 0.75rem;
-  color: var(--muted);
-  letter-spacing: 0.05em;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--blue-dark);
   text-transform: uppercase;
+  letter-spacing: .6px;
+  margin-bottom: 2px;
 }
 
 .cfp-date-value {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--accent);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--blue-primary);
+  margin-bottom: 2px;
 }
 
-.cfp-date-note {
-  font-size: 0.73rem;
-  color: var(--muted);
-}
+.cfp-date-note { font-size: 12px; color: var(--text-muted); }
 
-/* Descarga */
 .cfp-download-card {
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1.2rem 1.4rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 16px;
+  padding: 18px 20px;
+  background: var(--blue-primary);
+  border-radius: var(--radius-lg);
+  color: #fff;
   text-decoration: none;
-  color: var(--text);
-  background: var(--bg);
-  transition: border-color 0.2s, transform 0.2s;
+  transition: background .2s, transform .15s;
 }
-
 .cfp-download-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
+  background: var(--blue-accent);
+  transform: translateY(-1px);
+  text-decoration: none;
+  color: #fff;
 }
 
 .cfp-download-icon {
-  width: 44px;
-  height: 44px;
-  background: var(--accent-light);
-  border-radius: 6px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, .18);
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
+.cfp-download-icon svg { width: 20px; height: 20px; stroke: #fff; }
 
-.cfp-download-icon svg {
-  width: 20px;
-  height: 20px;
-  stroke: var(--accent);
-  fill: none;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
+.cfp-download-text  { flex: 1; min-width: 0; }
+.cfp-download-title { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+.cfp-download-sub   { font-size: 12px; opacity: .8; line-height: 1.4; }
 
-.cfp-download-title {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--text);
-  margin-bottom: 0.2rem;
-}
-
-.cfp-download-sub {
-  font-size: 0.75rem;
-  color: var(--muted);
-}
-
-/* Contacto */
 .cfp-contact-card {
-  background: var(--surface);
+  background: #fff;
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1.4rem;
+  border-radius: var(--radius-lg);
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .05);
 }
 
 .cfp-contact-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 0.6rem;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--blue-dark);
 }
 
 .cfp-contact-card p {
-  font-size: 0.82rem;
-  color: var(--muted);
-  line-height: 1.6;
-  margin-bottom: 1rem;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
 }
 
 .cfp-btn-contact {
-  display: block;
-  text-align: center;
-  background: var(--accent);
+  display: inline-block;
+  background: var(--blue-dark);
   color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  text-align: center;
   text-decoration: none;
-  padding: 0.65rem 1rem;
-  border-radius: 4px;
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: background 0.2s, transform 0.2s;
+  transition: background .2s;
+  cursor: pointer;
 }
-
 .cfp-btn-contact:hover {
-  background: var(--accent2);
-  transform: translateY(-1px);
+  background: var(--blue-primary);
+  text-decoration: none;
+  color: #fff;
 }
 
 
-/* ── RESPONSIVE ─────────────────────────────── */
+/* ============================================================
+   5. RESPONSIVE
+   ============================================================ */
 
-@media (max-width: 900px) {
-  .cfp-hero {
-    padding: 7rem 1.5rem 3rem;
+@media (max-width: 1024px) {
+  :root { --inner-pad: 32px; }
+
+  .main__inner {
+    padding: 0 var(--inner-pad);
+    gap: 32px;
   }
 
-  .cfp-body {
+  .cfp-inner {
     grid-template-columns: 1fr;
-    padding: 3rem 1.5rem 5rem;
-    gap: 3rem;
+    padding: 0 var(--inner-pad);
   }
 
   .cfp-sidebar {
-    position: static;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
 
-  .cfp-topics-grid {
-    grid-template-columns: 1fr;
-  }
+  .cfp-dates-card { grid-column: 1 / -1; }
 
-  .cfp-review-cards {
-    grid-template-columns: 1fr;
-  }
+  .cfp-review-cards { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 560px) {
-  .cfp-hero-title { font-size: 2rem; }
-  .cfp-section-title { font-size: 1.25rem; }
+@media (max-width: 960px) {
+  .main__inner { grid-template-columns: 1fr; }
+  .content__title { font-size: 34px; }
+}
+
+@media (max-width: 700px) {
+  .main__inner { grid-template-columns: 1fr; padding: 0 18px; }
+  .cfp-inner   { padding: 0 18px; }
+}
+
+@media (max-width: 640px) {
+  :root { --pad-x: 16px; --inner-pad: 16px; }
+
+  .main { padding: 80px var(--pad-x) 40px; }
+
+  .form__row,
+  .form__row--resumen { flex-direction: column; }
+
+  .upload-box { width: 100%; }
+
+  .form__actions { flex-direction: column; }
+
+  .btn { justify-content: center; }
+
+  .cfp-body { padding: 32px var(--pad-x) 48px; }
+
+  .cfp-section-title { font-size: 24px; }
+
+  .cfp-review-cards { grid-template-columns: 1fr; }
+
+  .cfp-sidebar { grid-template-columns: 1fr; }
+
+  .cfp-step { gap: 14px; }
 }
