@@ -28,21 +28,9 @@ git clone https://github.com/beluume/urucon2026.git
 
 ---
 
-## Notes:
-
-- The Call for Papers form now uses an AWS-backed submission flow:
-	1. Frontend requests a secure upload URL from API Gateway + Lambda.
-	2. PDF is uploaded directly to S3 through the pre-signed URL.
-	3. Submission metadata is stored in DynamoDB.
-
----
-
 ## AWS Deployment Requirements
 
-The GitHub Actions workflow in [.github/workflows/deploy.yml](.github/workflows/deploy.yml) now deploys both:
-
-1. Static website to S3/CloudFront
-2. CFP backend stack (API Gateway, Lambda, DynamoDB, submissions S3 bucket)
+The GitHub Actions workflow in [.github/workflows/deploy.yml](.github/workflows/deploy.yml) deploys the static website to S3/CloudFront.
 
 Set these repository settings before running the pipeline:
 
@@ -54,11 +42,3 @@ Set these repository settings before running the pipeline:
 	- `S3_BUCKET`
 	- `CLOUDFRONT_DISTRIBUTION_ID` (optional)
 
-The workflow derives backend settings automatically:
-
-- CloudFormation stack: `urucon-cfp-backend`
-- CFP submissions bucket: `${S3_BUCKET}-cfp-submissions`
-- CFP API CORS origin: `*`
-
-Backend infrastructure template: [backend/template.yaml](backend/template.yaml)
-Lambda handler source: [backend/cfp_handler.py](backend/cfp_handler.py)

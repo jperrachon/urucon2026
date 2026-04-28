@@ -32,153 +32,41 @@
                     Welcome to the URUCON 2026 paper submission platform. We invite
                     researchers, professors, professionals, and students to submit original works that
                     contribute knowledge, innovation, and high-impact applications in engineering, science,
-                    and technology. From this space, you will be able to register your proposal and upload
-                    the manuscript for peer review.
+                    and technology. Paper submission is managed externally via EDAS according to the
+                    instructions below.
                 </p>
 
-                <form class="form" id="cfp-form" novalidate>
-
-                    <!-- Row 1 -->
-                    <div class="form__row form__row--two">
-                        <div class="form__field">
-                            <span class="form__icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="1.8">
-                                    <circle cx="12" cy="8" r="4" />
-                                    <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-                                </svg>
-                            </span>
-                            <input type="text" class="form__input" name="fullName" placeholder="Full name" required />
-                        </div>
-
-                        <div class="form__field">
-                            <span class="form__icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="1.8">
-                                    <rect x="2" y="4" width="20" height="16" rx="2" />
-                                    <path d="M2 7l10 7 10-7" />
-                                </svg>
-                            </span>
-                            <input type="email" class="form__input" name="email" placeholder="Email address" required />
-                        </div>
-                    </div>
-
-                    <!-- Row 2 -->
-                    <div class="form__field form__field--full">
-                        <span class="form__icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.8">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                                <polyline points="14 2 14 8 20 8" />
-                            </svg>
-                        </span>
-                        <input type="text" class="form__input" name="paperTitle" placeholder="Paper title" required />
-                    </div>
-
-                    <!-- Row 3 -->
-                    <div class="form__field form__field--full form__field--select">
-                        <span class="form__icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.8">
-                                <rect x="3" y="3" width="7" height="7" />
-                                <rect x="14" y="3" width="7" height="7" />
-                                <rect x="14" y="14" width="7" height="7" />
-                                <rect x="3" y="14" width="7" height="7" />
-                            </svg>
-                        </span>
-
-                        <select class="form__select" name="researchArea" required>
-                            <option value="" disabled selected>Research area</option>
-                            <option>Electronics, Circuits &amp; Systems</option>
-                            <option>Artificial Intelligence &amp; Machine Learning</option>
-                            <option>Telecommunications &amp; Signal Processing</option>
-                            <option>Power Systems &amp; Renewable Energy</option>
-                            <option>Cybersecurity &amp; Network Engineering</option>
-                            <option>IoT, Embedded Systems &amp; Control</option>
-                            <option>Biomedical Engineering &amp; Health Tech</option>
-                            <option>Engineering Education &amp; Innovation</option>
-                        </select>
-
-                        <span class="form__chevron">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <polyline points="6 9 12 15 18 9" />
-                            </svg>
-                        </span>
-                    </div>
-
-                    <!-- Row 4 -->
-                    <div class="form__row form__row--resumen">
-
-                        <div class="form__field form__field--textarea">
-                            <span class="form__icon form__icon--top">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="1.8">
-                                    <line x1="3" y1="6" x2="21" y2="6" />
-                                    <line x1="3" y1="12" x2="21" y2="12" />
-                                    <line x1="3" y1="18" x2="15" y2="18" />
-                                </svg>
-                            </span>
-
-                            <textarea class="form__textarea" name="abstract" placeholder="Abstract" required></textarea>
-                        </div>
-
-                        <div class="upload-box" id="upload-box" role="button" tabindex="0" aria-label="Upload PDF file">
-                            <input type="file" id="paper-file" name="paperFile" class="upload-box__input" accept="application/pdf,.pdf" required />
-                            <svg class="upload-box__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-
-                                <path d="M6 17.5h11a3.5 3.5 0 0 0 .3-7
-                                5 5 0 0 0-9.8-1.3A4 4 0 0 0 6 17.5z" />
-
-                                <path d="M12 16V10" />
-                                <path d="M9.8 12.2L12 10l2.2 2.2" />
-
-                            </svg>
-
-                            <p class="upload-box__label"><strong>Upload PDF file</strong></p>
-                            <p class="upload-box__hint" id="upload-box-hint">Drag your paper here<br>or select a file</p>
-                        </div>
-                    </div>
-
-                    <p class="form__status" id="cfp-form-status" aria-live="polite"></p>
-
-                    <!-- Buttons -->
+                <div class="cfp-intro-note">
+                    <p>
+                        Paper uploads are not handled on this website. Please follow the official instructions and
+                        submit directly through EDAS.
+                    </p>
                     <div class="form__actions">
-
-                        <button type="submit" class="btn btn--primary" id="cfp-submit-btn">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                                <polyline points="17 8 12 3 7 8" />
-                                <line x1="12" y1="3" x2="12" y2="15" />
-                            </svg>
-                            Upload paper
-                        </button>
-
-                        <button type="button" class="btn btn--secondary" onclick="window.open('https://www.ieee.org/conferences/publishing/templates.html', '_blank')">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                                <polyline points="7 10 12 15 17 10" />
-                                <line x1="12" y1="15" x2="12" y2="3" />
-                            </svg>
+                        <button type="button" class="btn btn--secondary"
+                            onclick="window.open('https://www.ieee.org/conferences/publishing/templates.html', '_blank')">
                             Download template
                         </button>
-
-                        <button type="button" class="btn btn--secondary" onclick="window.open('https://www.ieee.org/conferences/publishing/authors/author-guide.html', '_blank')">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <rect x="3" y="3" width="18" height="18" rx="2" />
-                                <line x1="9" y1="9" x2="15" y2="9" />
-                                <line x1="9" y1="13" x2="15" y2="13" />
-                                <line x1="9" y1="17" x2="12" y2="17" />
-                            </svg>
+                        <button type="button" class="btn btn--secondary"
+                            onclick="window.open('https://edas.info/doc/authors.html', '_blank')">
                             Author guidelines
                         </button>
-
                     </div>
-                </form>
+                </div>
+
+                <div class="cfp-topics-card">
+                    <h3 class="cfp-topics-title">Suggested Topics (Temario)</h3>
+                    <ul class="cfp-topics-list">
+                        <li>Electronics, Circuits &amp; Systems</li>
+                        <li>Artificial Intelligence &amp; Machine Learning</li>
+                        <li>Telecommunications &amp; Signal Processing</li>
+                        <li>Power Systems &amp; Renewable Energy</li>
+                        <li>Cybersecurity &amp; Network Engineering</li>
+                        <li>IoT, Embedded Systems &amp; Control</li>
+                        <li>Biomedical Engineering &amp; Health Tech</li>
+                        <li>Instrumentación y mediciones</li>
+                        <li>Engineering Education &amp; Innovation</li>
+                    </ul>
+                </div>
             </section>
 
             <!-- Right column: sidebar -->
@@ -477,8 +365,6 @@
 
     <!-- Script -->
     <script src="js/layout.js"></script>
-    <script src="js/runtime-config.js"></script>
-    <script src="js/cfp-form.js"></script>
     <script src="js/main.js"></script>
 </body>
 

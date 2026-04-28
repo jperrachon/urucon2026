@@ -102,6 +102,46 @@ button, input, select, textarea {
   margin-bottom: 28px;
 }
 
+.cfp-intro-note {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.cfp-intro-note p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.cfp-topics-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-section);
+  padding: 18px;
+}
+
+.cfp-topics-title {
+  color: var(--blue-dark);
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.cfp-topics-list {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+}
+
+.cfp-topics-list li {
+  line-height: 1.45;
+}
+
 /* ── Formulario ── */
 .form {
   display: flex;
@@ -190,52 +230,7 @@ button, input, select, textarea {
 }
 .form__textarea::placeholder { color: #aab3c4; }
 
-.form__field:focus-within {
-  border-color: var(--blue-primary);
-  box-shadow: 0 0 0 2px rgba(26, 85, 204, .12);
-}
 
-/* Upload box */
-.upload-box {
-  position: relative;
-  width: 200px;
-  flex-shrink: 0;
-  border: 2px dashed var(--border);
-  border-radius: var(--radius-lg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 24px 16px;
-  cursor: pointer;
-  transition: border-color .2s, background .2s;
-  text-align: center;
-  gap: 6px;
-}
-.upload-box.is-dragover {
-  border-color: var(--blue-primary);
-  background: #e9f1ff;
-}
-.upload-box:hover {
-  border-color: var(--blue-primary);
-  background: #f0f5ff;
-}
-.upload-box__input {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  cursor: pointer;
-}
-.upload-box__label { font-size: 14px; font-weight: 700; color: var(--blue-primary); }
-.upload-box__hint  { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
-
-.upload-box__icon{
-  width:44px;
-  height:44px;
-  color:#1a55cc;
-  margin-bottom:6px;
-  opacity:.95;
-}
 
 /* Botones */
 .form__actions {
@@ -243,22 +238,6 @@ button, input, select, textarea {
   gap: 10px;
   margin-top: 4px;
   flex-wrap: wrap;
-}
-
-.form__status {
-  min-height: 20px;
-  margin-top: 6px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-muted);
-}
-
-.form__status.is-success {
-  color: #157f3b;
-}
-
-.form__status.is-error {
-  color: #b00020;
 }
 
 .btn {
@@ -793,8 +772,6 @@ button, input, select, textarea {
 
   .form__row,
   .form__row--resumen { flex-direction: column; }
-
-  .upload-box { width: 100%; }
 
   .form__actions { flex-direction: column; }
 
