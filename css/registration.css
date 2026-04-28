@@ -1,141 +1,188 @@
 /* ══════════════════════════════════════════
    URUCON 2026 — registration.css
    Estilos exclusivos de la página Registration.
-   Requiere css/styles.css cargado antes.
+   Estética alineada con cfp.css.
    ══════════════════════════════════════════ */
+
+/* ── VARIABLES (alineadas con cfp.css) ──────── */
+:root {
+  --blue-dark:       #0a2e6e;
+  --blue-primary:    #1a55cc;
+  --blue-accent:     #1e6fd9;
+  --blue-light:      #3b8af7;
+  --blue-header:     #1952c5;
+  --blue-card:       #0f3a85;
+  --blue-tag-bg:     #e8effe;
+  --blue-tag-text:   #1a55cc;
+  --text-body:       #333333;
+  --text-muted:      #666666;
+  --border:          #d0daea;
+  --bg:              #ffffff;
+  --bg-section:      #f5f7fc;
+  --placeholder-bg:  #ccd9ee;
+  --placeholder-text:#4466aa;
+  --radius:          6px;
+  --radius-lg:       10px;
+  --font:            'Barlow', sans-serif;
+  --max-w:           1280px;
+  --pad-x:           40px;
+  /* Padding lateral interno igual al de .main__inner */
+  --inner-pad:       150px;
+
+  /* Alias para compatibilidad con cualquier ref. a var(--accent) en styles.css */
+  --accent:          var(--blue-primary);
+  --accent2:         var(--blue-accent);
+  --accent-light:    var(--blue-tag-bg);
+  --text:            var(--text-body);
+  --muted:           var(--text-muted);
+  --surface:         var(--bg-section);
+}
 
 
 /* ── HERO ──────────────────────────────────── */
 
 .reg-hero {
+  background: var(--blue-dark);
   min-height: 38vh;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
   display: flex;
   align-items: flex-end;
-  padding: 8rem 4rem 4rem;
+  padding: 8rem var(--pad-x) 4rem;
   position: relative;
   overflow: hidden;
 }
 
-.reg-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(circle at 20% 50%, rgba(255,255,255,0.06) 0%, transparent 60%),
-    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.04) 0%, transparent 50%);
-  pointer-events: none;
-}
-
+/* Patrón de grilla sutil, igual a cfp pero en oscuro */
 .reg-hero::after {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
 }
 
+/* Destello radial izquierdo */
+.reg-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse at 15% 70%, rgba(26,85,204,0.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 20%, rgba(59,138,247,0.15) 0%, transparent 45%);
+  pointer-events: none;
+}
+
 .reg-hero-inner {
-  max-width: 1100px;
+  max-width: var(--max-w);
   width: 100%;
   margin: 0 auto;
+  padding: 0 var(--inner-pad);
   position: relative;
   z-index: 1;
 }
 
 .reg-hero-tag {
   display: inline-block;
-  font-size: 0.7rem;
-  letter-spacing: 0.22em;
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.7);
+  font-family: var(--font);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.65);
-  font-weight: 500;
-  margin-bottom: 1rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 1.1rem;
 }
 
 .reg-hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
-  font-weight: 700;
+  font-family: var(--font);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 800;
   color: #fff;
   line-height: 1.1;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .reg-hero-title em {
-  font-style: italic;
-  color: rgba(255,255,255,0.65);
+  font-style: normal;
+  color: var(--blue-light);
 }
 
 .reg-hero-sub {
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.65);
+  font-family: var(--font);
   font-size: 0.97rem;
-  line-height: 1.7;
-  max-width: 620px;
+  line-height: 1.65;
+  max-width: 580px;
 }
 
 
 /* ── PAGE WRAPPER ───────────────────────────── */
 
 .reg-page {
-  max-width: 1100px;
+  max-width: var(--max-w);
   margin: 0 auto;
-  padding: 5rem 4rem 7rem;
+  padding: 56px var(--pad-x) 72px;
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 56px;
 }
 
 .reg-section {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 24px;
 }
 
 
 /* ── SECTION HEADERS ────────────────────────── */
 
-.reg-sh { margin-bottom: .5rem; }
+.reg-sh { margin-bottom: 4px; }
 
 .reg-sh-tag {
   display: inline-block;
-  color: var(--accent);
-  font-size: 0.68rem;
-  letter-spacing: 0.22em;
+  background: var(--blue-tag-bg);
+  color: var(--blue-tag-text);
+  font-family: var(--font);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  width: fit-content;
 }
 
 .reg-sh-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1.2;
-  margin-bottom: 0.6rem;
+  font-family: var(--font);
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--blue-dark);
+  line-height: 1.15;
+  margin-bottom: 8px;
 }
 
 .reg-sh-title em {
-  font-style: italic;
-  color: var(--accent);
+  font-style: normal;
+  color: var(--blue-primary);
 }
 
 .reg-sh-desc {
-  color: var(--muted);
-  font-size: 0.88rem;
-  line-height: 1.75;
+  font-family: var(--font);
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.65;
   max-width: 660px;
 }
 
 .reg-sh-desc a {
-  color: var(--accent);
+  color: var(--blue-primary);
   text-decoration: none;
 }
-
 .reg-sh-desc a:hover { text-decoration: underline; }
 
 
@@ -144,7 +191,7 @@
 .reg-pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.2rem;
+  gap: 16px;
 }
 
 .reg-pricing-grid--narrow {
@@ -157,22 +204,24 @@
 
 .reg-pc {
   background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   position: relative;
-  transition: transform 0.2s, border-color 0.2s;
+  transition: box-shadow 0.2s, transform 0.2s;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .reg-pc:hover {
   transform: translateY(-3px);
-  border-color: var(--accent2);
+  box-shadow: 0 6px 20px rgba(10,46,110,0.12);
 }
 
 .reg-pc-featured {
-  border: 2px solid var(--accent);
+  border: 2px solid var(--blue-primary);
+  box-shadow: 0 4px 16px rgba(26,85,204,0.15);
 }
 
 .reg-pc-badge {
@@ -180,46 +229,48 @@
   top: -1px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--accent);
+  background: var(--blue-primary);
   color: #fff;
+  font-family: var(--font);
   font-size: 0.6rem;
-  letter-spacing: 0.12em;
+  font-weight: 700;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  font-weight: 500;
   padding: 0.25rem 0.9rem;
   border-radius: 0 0 6px 6px;
   white-space: nowrap;
 }
 
 .reg-pc-header {
-  padding: 1.5rem 1.4rem 1.2rem;
+  padding: 1.4rem 1.4rem 1.1rem;
   border-bottom: 1px solid var(--border);
-  background: var(--surface);
+  background: var(--bg-section);
 }
 
 .reg-pc-free .reg-pc-header {
-  background: #f1f8f1;
+  background: #eef7ef;
 }
 
 .reg-pc-label {
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
+  font-family: var(--font);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--muted);
-  font-weight: 500;
-  margin-bottom: 0.3rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
 }
 
 .reg-pc-category {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--blue-dark);
   line-height: 1.2;
 }
 
 .reg-pc-body {
-  padding: 1.4rem;
+  padding: 1.3rem 1.4rem;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -235,31 +286,33 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
+  gap: 3px;
 }
 
 .reg-pc-price-label {
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
+  font-family: var(--font);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--text-muted);
 }
 
 .reg-pc-price-val {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--accent);
+  font-family: var(--font);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--blue-primary);
   line-height: 1;
 }
 
 .reg-pc-price-val.reg-late {
-  color: var(--muted);
-  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-size: 1.15rem;
 }
 
 .reg-pc-price-val.reg-free {
-  color: #2e7d32;
+  color: #1a8c4e;
 }
 
 .reg-pc-divider {
@@ -268,65 +321,36 @@
   flex-shrink: 0;
 }
 
-.reg-pc-cta {
-  display: block;
-  text-align: center;
-  background: var(--accent);
-  color: #fff;
-  text-decoration: none;
-  padding: 0.6rem 1rem;
-  border-radius: 4px;
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-top: auto;
-  transition: background 0.2s, transform 0.2s;
-}
-
-.reg-pc-cta:hover {
-  background: var(--accent2);
-  transform: translateY(-1px);
-}
-
-.reg-pc-cta-green {
-  background: #2e7d32;
-}
-
-.reg-pc-cta-green:hover {
-  background: #1b5e20;
-}
-
-
 /* ── EARLY BIRD STRIP ───────────────────────── */
 
 .reg-early-strip {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem 1.4rem;
-  background: var(--accent-light);
-  border-radius: 8px;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--blue-tag-bg);
+  border-radius: var(--radius-lg);
   border: 1px solid #c5d5ee;
 }
 
 .reg-early-strip svg {
-  width: 20px;
-  height: 20px;
-  stroke: var(--accent);
+  width: 18px;
+  height: 18px;
+  stroke: var(--blue-primary);
   fill: none;
   flex-shrink: 0;
 }
 
 .reg-early-strip-text {
-  font-size: 0.83rem;
-  color: var(--text);
-  line-height: 1.6;
+  font-family: var(--font);
+  font-size: 13px;
+  color: var(--text-body);
+  line-height: 1.5;
 }
 
 .reg-early-strip-text strong {
-  color: var(--accent);
-  font-weight: 500;
+  color: var(--blue-dark);
+  font-weight: 700;
 }
 
 
@@ -335,34 +359,35 @@
 .reg-warn-card {
   background: #fff8e1;
   border: 1px solid #ffe082;
-  border-radius: 8px;
-  padding: 1.2rem 1.4rem;
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
   display: flex;
-  gap: 1rem;
+  gap: 12px;
   align-items: flex-start;
 }
 
 .reg-warn-card svg {
   width: 20px;
   height: 20px;
-  stroke: #f57f17;
+  stroke: #c07b00;
   fill: none;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
   flex-shrink: 0;
-  margin-top: 0.1rem;
+  margin-top: 1px;
 }
 
 .reg-warn-text {
-  font-size: 0.82rem;
+  font-family: var(--font);
+  font-size: 13px;
   color: #5d4037;
   line-height: 1.65;
 }
 
 .reg-warn-text strong {
-  color: #e65100;
-  font-weight: 500;
+  color: #c07b00;
+  font-weight: 700;
 }
 
 
@@ -371,61 +396,68 @@
 .reg-rules-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: 16px;
 }
 
 .reg-rule-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1.3rem 1.4rem;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
   display: flex;
-  gap: 1rem;
+  gap: 16px;
   align-items: flex-start;
-  transition: border-color 0.2s;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
-.reg-rule-card:hover { border-color: var(--accent); }
+.reg-rule-card:hover {
+  border-color: var(--blue-primary);
+  box-shadow: 0 4px 16px rgba(26,85,204,0.10);
+}
 
 .reg-rule-num {
-  width: 32px;
-  height: 32px;
-  background: var(--accent);
+  width: 36px;
+  height: 36px;
+  background: var(--blue-primary);
   color: #fff;
-  border-radius: 4px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 0.9rem;
-  font-weight: 700;
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 800;
   flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(26,85,204,0.25);
 }
 
 .reg-rule-title {
-  font-size: 0.83rem;
-  font-weight: 500;
-  color: var(--text);
-  margin-bottom: 0.25rem;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blue-dark);
+  margin-bottom: 4px;
 }
 
 .reg-rule-desc {
-  font-size: 0.78rem;
-  color: var(--muted);
+  font-family: var(--font);
+  font-size: 13px;
+  color: var(--text-muted);
   line-height: 1.6;
 }
 
 .reg-rule-desc strong {
-  color: var(--text);
-  font-weight: 500;
+  color: var(--text-body);
+  font-weight: 700;
 }
 
 
 /* ── SCHOLARSHIP CARD ───────────────────────── */
 
 .reg-scholarship-card {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
-  border-radius: 10px;
+  background: var(--blue-card);
+  border-radius: var(--radius-lg);
   padding: 2.5rem;
   display: flex;
   align-items: center;
@@ -433,15 +465,17 @@
   gap: 2rem;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(10,46,110,0.2);
 }
 
+/* Patrón de grilla coherente con el hero */
 .reg-scholarship-card::after {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size: 40px 40px;
   pointer-events: none;
 }
@@ -449,51 +483,33 @@
 .reg-sch-text { position: relative; z-index: 1; }
 
 .reg-sch-tag {
-  font-size: 0.62rem;
-  letter-spacing: 0.2em;
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.75);
+  font-family: var(--font);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.65);
-  font-weight: 500;
-  display: block;
-  margin-bottom: 0.5rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 0.75rem;
 }
 
 .reg-sch-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-family: var(--font);
+  font-size: 22px;
+  font-weight: 800;
   color: #fff;
   margin-bottom: 0.6rem;
 }
 
 .reg-sch-desc {
-  color: rgba(255,255,255,0.75);
-  font-size: 0.85rem;
-  line-height: 1.7;
+  font-family: var(--font);
+  color: rgba(255,255,255,0.65);
+  font-size: 14px;
+  line-height: 1.65;
   max-width: 480px;
-}
-
-.reg-sch-cta {
-  position: relative;
-  z-index: 1;
-  flex-shrink: 0;
-  display: inline-block;
-  background: #fff;
-  color: var(--accent);
-  text-decoration: none;
-  padding: 0.8rem 1.6rem;
-  border-radius: 4px;
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  transition: opacity 0.2s, transform 0.2s;
-}
-
-.reg-sch-cta:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
 }
 
 
@@ -507,81 +523,91 @@
 }
 
 .reg-invoice-desc {
-  color: var(--muted);
-  font-size: 0.85rem;
+  font-family: var(--font);
+  color: var(--text-muted);
+  font-size: 14px;
   line-height: 1.85;
 }
 
 .reg-invoice-desc a {
-  color: var(--accent);
+  color: var(--blue-primary);
   text-decoration: none;
 }
-
 .reg-invoice-desc a:hover { text-decoration: underline; }
 
 .reg-invoice-card {
-  background: var(--surface);
+  background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
 }
 
 .reg-invoice-header {
-  background: var(--accent);
+  background: var(--blue-card);
   color: #fff;
-  padding: 0.85rem 1.2rem;
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
+  padding: 14px 20px;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
-  font-weight: 500;
 }
 
 .reg-invoice-row {
-  padding: 0.85rem 1.2rem;
+  padding: 14px 20px;
   border-bottom: 1px solid var(--border);
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 3px;
 }
 
 .reg-invoice-row:last-child { border-bottom: none; }
 
 .reg-invoice-label {
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
+  font-family: var(--font);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--text-muted);
 }
 
 .reg-invoice-val {
-  font-size: 0.85rem;
-  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--text-body);
+  font-weight: 500;
 }
 
 .reg-invoice-exempt {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: #e8f5e9;
-  color: #2e7d32;
-  font-size: 0.7rem;
-  font-weight: 500;
-  padding: 0.25rem 0.7rem;
+  background: #e6f7ee;
+  color: #1a8c4e;
+  font-family: var(--font);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
   border-radius: 100px;
-  margin-top: 0.2rem;
+  margin-top: 4px;
+  width: fit-content;
 }
 
 
 /* ── RESPONSIVE ─────────────────────────────── */
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+  :root { --inner-pad: 32px; }
+
   .reg-hero {
-    padding: 7rem 1.5rem 3rem;
+    padding: 7rem 32px 3rem;
   }
 
   .reg-page {
-    padding: 3rem 1.5rem 5rem;
-    gap: 4rem;
+    padding: 40px 32px 60px;
+    gap: 48px;
   }
 
   .reg-pricing-grid {
@@ -607,9 +633,21 @@
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 700px) {
+  .reg-hero {
+    padding: 6rem 18px 2.5rem;
+  }
+
+  .reg-page {
+    padding: 32px 18px 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root { --pad-x: 16px; --inner-pad: 16px; }
+
   .reg-hero-title { font-size: 2rem; }
-  .reg-sh-title { font-size: 1.3rem; }
+  .reg-sh-title { font-size: 22px; }
 
   .reg-pricing-grid {
     grid-template-columns: 1fr;
