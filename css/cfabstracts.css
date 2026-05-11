@@ -1,0 +1,82 @@
+/* ============================================================
+   cfabstracts.css  –  URUCON 2026
+   Additional styles for the Call for Abstracts page
+   ============================================================ */
+
+/* ── CATEGORY CARDS ── */
+.cfa-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cfa-category {
+  display: flex;
+  gap: 18px;
+  background: var(--bg-section, #f5f7fc);
+  border: 1px solid var(--border, #d0daea);
+  border-radius: var(--radius-lg, 10px);
+  padding: 20px 22px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.cfa-category:hover {
+  box-shadow: 0 4px 16px rgba(26, 85, 204, 0.1);
+  border-color: #b0c4e8;
+}
+
+.cfa-category__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cfa-category__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.cfa-icon--student {
+  background: linear-gradient(135deg, #0a2e6e, #1a55cc);
+}
+
+.cfa-icon--student svg {
+  stroke: #fff;
+}
+
+.cfa-icon--researcher {
+  background: linear-gradient(135deg, #1a55cc, #3b8af7);
+}
+
+.cfa-icon--researcher svg {
+  stroke: #fff;
+}
+
+.cfa-icon--industry {
+  background: linear-gradient(135deg, #0f3a85, #1e6fd9);
+}
+
+.cfa-icon--industry svg {
+  stroke: #fff;
+}
+
+.cfa-category__content {
+  flex: 1;
+}
+
+.cfa-category__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--blue-dark, #0a2e6e);
+  margin-bottom: 6px;
+}
+
+.cfa-category__desc {
+  font-size: 0.87rem;
+  line-height: 1.65;
+  color: var(--text-body, #333);
+}

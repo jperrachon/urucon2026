@@ -70,6 +70,15 @@ nav.scrolled .nav-inner { height: 56px; }
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.nav-imagotipo {
+  height: 44px;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 /* ── DESKTOP MENU ── */
@@ -357,93 +366,152 @@ nav.scrolled .nav-item > .nav-link:hover {
 #inicio {
   min-height: 100vh;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
-  padding: 6rem 6rem 4rem;
+  padding: 6rem;
 }
 
 .banner-bg {
   position: absolute;
   inset: 0;
-  background-image: url('../img/banner.jpg');
-  background-size: contain;
-  background-position: center 30%;
-  background-repeat: no-repeat;
-  margin: 0 6rem;
+  background-color: #040f2e;
 }
 
-.banner-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    to bottom,
-    rgba(255,255,255,0.85),
-    rgba(255,255,255,0.65),
-    rgba(255,255,255,0.85)
+.banner-pattern {
+  position: absolute;
+  inset: -50%;
+  z-index: 1;
+  background-image: url('../img/logotipo.png');
+  background-size: 280px auto;
+  background-repeat: repeat;
+  filter: brightness(0) invert(1);
+  mix-blend-mode: screen;
+  opacity: 0.055;
+  transform: rotate(-20deg);
+  pointer-events: none;
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(5, 18, 50, 0.92) 0%,
+    rgba(10, 42, 100, 0.84) 50%,
+    rgba(5, 18, 50, 0.94) 100%
   );
-  pointer-events:none;
+  pointer-events: none;
 }
 
-.banner-content {
+/* ── Hero two-column layout ── */
+.banner-hero {
   position: relative;
   z-index: 2;
-  max-width: 860px;
-  text-align: center;
-  animation: fadeUp 1s ease both;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  max-width: 1100px;
+  width: 100%;
 }
 
-.banner-tag {
-  display: inline-block;
-  background: rgba(255,255,255,0.15);
-  border: 1px solid rgba(255,255,255,0.35);
-  color: #ffffff;
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
+.banner-logo-wrap {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: heroLogoIn 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.banner-imagotipo {
+  width: clamp(180px, 20vw, 300px);
+  height: auto;
+  display: block;
+  filter: brightness(0) invert(1) drop-shadow(0 4px 24px rgba(168, 196, 240, 0.35));
+  animation: heroFloat 5s 1.3s ease-in-out infinite;
+}
+
+.banner-divider {
+  width: 1px;
+  height: 220px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.35), transparent);
+  flex-shrink: 0;
+  transform-origin: top;
+  animation: dividerGrow 0.9s 0.5s ease both;
+}
+
+.banner-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.banner-eyebrow {
+  display: block;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 0.4rem 1.2rem;
-  border-radius: 100px;
-  margin-bottom: 2rem;
-  animation: fadeUp 1s 0.1s ease both;
+  color: rgba(168, 196, 240, 0.95);
+  margin-bottom: 1.4rem;
+  animation: fadeUp 0.8s 0.4s ease both;
 }
 
-.banner-title {
+.banner-headline {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 7vw, 6rem);
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
   font-weight: 900;
-  line-height: 1.05;
-  margin-bottom: 1.5rem;
+  line-height: 1.08;
   color: #ffffff;
-  animation: fadeUp 1s 0.2s ease both;
+  margin-bottom: 1.6rem;
+  animation: fadeUp 0.8s 0.55s ease both;
 }
 
-.banner-title em {
+.banner-headline em {
   font-style: italic;
   color: #a8c4f0;
 }
 
-.banner-sub {
+.banner-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.8rem;
+  animation: fadeUp 0.8s 0.55s ease both;
+}
+
+.banner-meta-line {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.banner-meta-line svg {
+  width: 18px;
+  height: 18px;
+  stroke: #a8c4f0;
+  flex-shrink: 0;
+}
+
+.banner-tagline {
   font-size: 1.1rem;
-  color: rgba(255,255,255,0.75);
-  max-width: 520px;
-  margin: 0 auto 2.5rem;
-  line-height: 1.7;
-  animation: fadeUp 1s 0.3s ease both;
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.03em;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  padding-top: 1.2rem;
+  animation: fadeUp 0.8s 0.72s ease both;
 }
 
-.banner-actions {
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.banner-bottom{
-  position: absolute;
-  bottom: 150px;
-  left: 50%;
-  transform: translateX(-50%);
+.banner-actions-inline {
+  margin-top: 2rem;
+  animation: fadeUp 0.8s 1.1s ease both;
 }
 .btn-primary {
   background: var(--accent);
@@ -853,6 +921,21 @@ footer {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes heroLogoIn {
+  from { opacity: 0; transform: scale(0.82) translateX(-24px); }
+  to   { opacity: 1; transform: scale(1) translateX(0); }
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+@keyframes dividerGrow {
+  from { opacity: 0; transform: scaleY(0); }
+  to   { opacity: 1; transform: scaleY(1); }
+}
+
 @keyframes scrollDown {
   0%   { opacity: 1; transform: scaleY(1) translateY(0); }
   100% { opacity: 0; transform: scaleY(0.5) translateY(12px); }
@@ -878,10 +961,12 @@ footer {
 }
 
 @media (max-width: 900px) {
-  #inicio { min-height: 70vh; padding: 7rem 0rem 4rem; }
-   .banner-bg{
-    margin: 0;
-  }
+  #inicio { min-height: 80vh; padding: 6rem 1.5rem 5rem; }
+  .banner-hero { flex-direction: column; gap: 2rem; text-align: center; align-items: center; }
+  .banner-divider { width: 80px; height: 1px; background: linear-gradient(to right, transparent, rgba(255,255,255,0.35), transparent); }
+  .banner-meta { align-items: center; }
+  .banner-imagotipo { width: clamp(140px, 40vw, 200px); }
+  .banner-bottom { bottom: 32px; }
   #about { padding: 5rem 1.5rem; }
   .about-inner { grid-template-columns: 1fr; gap: 3rem; }
   .about-badge { bottom: -1rem; right: -0.5rem; }
